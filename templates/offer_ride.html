@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>offer ride</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style>
+        .section {
+            position: relative;
+            height: 100vh;
+        }
+
+        .section .section-center {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        #booking {
+            background-color: font-family: 'Montserrat', sans-serif;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #booking::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background: #8ca3cb;
+        }
+
+        .booking-form {
+            max-width: 642px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .booking-form .form-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .booking-form .form-header h1 {
+            font-size: 58px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #3e485c;
+            margin: 0px;
+        }
+
+        .booking-form > form {
+            background-color: #ffffff;
+            padding: 30px 20px;
+            border-radius: 3px;
+        }
+
+        .booking-form .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .booking-form .form-control {
+            background-color: #ebecee;
+            border-radius: 4px;
+            border: none;
+            height: 40px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            color: #3e485c;
+            font-size: 14px;
+        }
+
+        .booking-form .form-control::-webkit-input-placeholder {
+            color: rgba(16, 17, 19, 0.3);
+        }
+
+        .booking-form .form-control:-ms-input-placeholder {
+            color: rgba(16, 17, 19, 0.3);
+        }
+
+        .booking-form .form-control::placeholder {
+            color: rgba(16, 17, 19, 0.3);
+        }
+
+        .booking-form input[type="date"].form-control:invalid {
+            color: rgba(16, 17, 19, 0.3);
+        }
+
+        .booking-form select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .booking-form select.form-control + .select-arrow {
+            position: absolute;
+            right: 0px;
+            bottom: 6px;
+            width: 32px;
+            line-height: 32px;
+            height: 32px;
+            text-align: center;
+            pointer-events: none;
+            color: #101113;
+            font-size: 14px;
+        }
+
+        .booking-form select.form-control + .select-arrow:after {
+            content: '\279C';
+            display: block;
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        .booking-form .form-label {
+            display: inline-block;
+            color: #3e485c;
+            font-weight: 700;
+            margin-bottom: 6px;
+            margin-left: 7px;
+
+        }
+
+        .booking-form .submit-btn {
+            color: #101113;
+            background-color: #00bfff;
+            font-weight: 700;
+            height: 50px;
+            border: none;
+            width: 100%;
+            display: block;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>offer ride</h1>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Name</span>
+                                    <input class="form-control" type="text" placeholder="Enter your name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Email</span>
+                                    <input class="form-control" type="email" placeholder="Enter your email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label">Phone</span>
+                            <input class="form-control" type="tel" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label">Pickup Location</span>
+                            <input class="form-control" type="text" placeholder="Enter ZIP/Location">
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label">Destination</span>
+                            <input class="form-control" type="text" placeholder="Enter ZIP/Location">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <span class="form-label">Pickup Date</span>
+                                    <input class="form-control" type="date" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <span class="form-label">Hour</span>
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <span class="form-label">Min</span>
+                                            <select class="form-control">
+                                                <option>05</option>
+                                                <option>10</option>
+                                                <option>15</option>
+                                                <option>20</option>
+                                                <option>25</option>
+                                                <option>30</option>
+                                                <option>35</option>
+                                                <option>40</option>
+                                                <option>45</option>
+                                                <option>50</option>
+                                                <option>55</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <span class="form-label">AM/PM</span>
+                                            <select class="form-control">
+                                                <option>AM</option>
+                                                <option>PM</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-btn">
+                            <button class="submit-btn">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

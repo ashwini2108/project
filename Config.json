@@ -1,0 +1,14 @@
+{
+  "mongo": {
+    "address": "",
+    "port": 27017,
+    "auth_db": "",
+    "is_auth_enabled": "",
+    "username": "",
+    "password": "",
+    "users_database": "",
+    "add_users_collection": "",
+    "login_collection": "",
+    "users_hist_collection_name": ""
+  }
+}
