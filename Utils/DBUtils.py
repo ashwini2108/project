@@ -13,7 +13,9 @@ class DBUtils:
                 client = MongoClient(
                     "mongodb://" + username + ":" + password + "@" + address + ":" + port + "/" + auth_db)
             else:
-                client = MongoClient("mongodb://" + address + ":" + port + "/" + auth_db)
+                client = MongoClient(
+                    "mongodb://" + str(address).encode('ascii', 'ignore') + ":" + str(port) + "/" + str(auth_db).encode(
+                        'ascii', 'ignore'))
             return client
         except Exception as e:
             self.log.error("Error", e)

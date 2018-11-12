@@ -16,8 +16,8 @@ class UpdateProfile:
         port = self.config['mongo']['port']
         auth_db = self.config['mongo']['auth_db']
         is_auth_enabled = self.config['mongo']['is_auth_enabled']
-        username = self.config['username']
-        password = self.config['password']
+        username = self.config['mongo']['username']
+        password = self.config['mongo']['password']
 
         client = self.db_utils.get_client(address=address, port=port,
                                           username=username, password=password,

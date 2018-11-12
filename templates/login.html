@@ -48,13 +48,13 @@
 </head>
 <body>
 <div class="login-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="http://127.0.0.1:5000/login_method" method="post">
         <h2 class="text-center"><font color=#484848>Log in</font></h2>
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email/Mobile No." required="required">
+            <input type="email" class="form-control" placeholder="Email/Mobile No." required="required" name="email_id">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
+            <input type="password" class="form-control" placeholder="Password" required="required" name="password">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-block"><font color="black">Log in</font></button>

@@ -16,8 +16,8 @@ class UserRegistration:
         port = self.config['mongo']['port']
         auth_db = self.config['mongo']['auth_db']
         is_auth_enabled = self.config['mongo']['is_auth_enabled']
-        username = self.config['username']
-        password = self.config['password']
+        username = self.config['mongo']['username']
+        password = self.config['mongo']['password']
 
         client = self.db_utils.get_client(address=address, port=port,
                                           username=username, password=password,
@@ -25,21 +25,19 @@ class UserRegistration:
         return client
 
     @staticmethod
-    def insert_query(first_name, last_name, sex, username, password):
+    def insert_query(name, email, contact, password):
         query = dict()
-        query['first_name'] = first_name
-        query['last_name'] = last_name
-        query['sex'] = sex
-        query['username'] = username
+        query['name'] = name
+        query['email'] = email
+        query['contact'] = contact
         query['password'] = password
         query['auth'] = True
-        return json.dumps(query)
+        return query
 
     def add_user(self, **kwargs):
-        first_name = kwargs['first_name']
-        last_name = kwargs['last_name']
-        sex = kwargs['sex']
-        username = kwargs['username']
+        name = kwargs['name']
+        email = kwargs['email']
+        contact = kwargs['contact']
         password = kwargs['password']
 
         client = self.get_client()
@@ -49,10 +47,9 @@ class UserRegistration:
         database = client[users_database_name]
         add_users_collection = database[add_users_collection_name]
 
-        query = self.insert_query(first_name=first_name, last_name=last_name, sex=sex, username=username,
-                                  password=password)
+        query = self.insert_query(name, email, contact, password)
         try:
             add_users_collection.insert(query)
-            self.log.info("Added user with username : {}".format(username))
+            self.log.info("Added user with username : {}".format(email))
         except Exception as e:
             self.log.error("Error : {}".format(e))

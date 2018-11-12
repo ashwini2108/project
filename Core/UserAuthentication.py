@@ -16,8 +16,8 @@ class UserAuthentication:
         port = self.config['mongo']['port']
         auth_db = self.config['mongo']['auth_db']
         is_auth_enabled = self.config['mongo']['is_auth_enabled']
-        username = self.config['username']
-        password = self.config['password']
+        username = self.config['mongo']['username']
+        password = self.config['mongo']['password']
 
         client = self.db_utils.get_client(address=address, port=port,
                                           username=username, password=password,
@@ -29,7 +29,7 @@ class UserAuthentication:
         query = dict()
         query['username'] = username
         query['password'] = password
-        return json.dumps(query)
+        return query
 
     def check_in_db(self, username, password):
         users_database = self.config['mongo']['users_database']
@@ -45,12 +45,13 @@ class UserAuthentication:
                 return True
             else:
                 return False
+        return False
 
     @staticmethod
     def username_avail_query(username):
         query = dict()
-        query['username'] = username
-        return json.dumps(query)
+        query['email'] = username
+        return query
 
     def is_username_available(self, username):
         users_database = self.config['mongo']['users_database']
@@ -65,3 +66,4 @@ class UserAuthentication:
                 return False
             else:
                 return True
+        return True

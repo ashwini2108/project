@@ -1,14 +1,14 @@
 {
   "mongo": {
-    "address": "",
+    "address": "localhost",
     "port": 27017,
-    "auth_db": "",
-    "is_auth_enabled": "",
-    "username": "",
-    "password": "",
-    "users_database": "",
-    "add_users_collection": "",
-    "login_collection": "",
-    "users_hist_collection_name": ""
+    "auth_db": "admin",
+    "is_auth_enabled": false,
+    "username": "admin",
+    "password": "badRiver@123",
+    "users_database": "users",
+    "add_users_collection": "registrations",
+    "login_collection": "login",
+    "users_hist_collection_name": "users_hist"
   }
 }

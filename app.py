@@ -27,27 +27,31 @@ def home():
 def registration_page():
     error = None
     if request.method == 'POST':
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        sex = request.form['sex']
-        username = request.form['username']
+        name = request.form['name']
+        email = request.form['email']
+        contact = request.form['contact']
         password = request.form['password']
-        is_username_available = auth.username_avail_query(username=username)
+        is_username_available = auth.is_username_available(username=email)
         if is_username_available:
-            reg.add_user(first_name=first_name, last_name=last_name, sex=sex, username=username, password=password)
-            return redirect(url_for('login_page'))
+            reg.add_user(name=name, email=email, contact=contact, password=password)
+            return redirect(url_for('login'))
         else:
             error = 'Username not available. Please try again'
     return render_template('registration.html', error=error)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET'])
+def login():
+    return render_template('login.html')
+
+
+@app.route('/login_method', methods=['POST'])
 def login_page():
     error = None
     if request.method == 'POST':
-        username = request.form['username']
+        email_id = request.form['email_id']
         password = request.form['password']
-        is_existing_user = auth.check_in_db(username, password)
+        is_existing_user = auth.check_in_db(email_id, password)
         if is_existing_user:
             session['logged_in'] = True
             return redirect(url_for('home'))
